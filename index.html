@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Crystal Collector</title>
+
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="assets/javascript/game.js"></script>
+
+</head>
+
+<body>
+
+  <div class = "container">
+    <h1>Snowflake Collecter!</h1>
+      <h2>Game Instructions:</h2>
+      <ol>
+        <li>You are given a random number at the start of each game.</li>
+        <li>There are four snowflakes below and each of them has been given a random value. By clicking on each snowflake, you will add that assigned value to your total score.</li>
+        <li>You win the game by matching your total score to the randm number, you lose the game if your total score goes above the random number.</li>
+        <li>The value of each item is hidden from you until you click on it.</li>
+        <li>Each time when the game starts, the game will change the values of each item.</li>
+      </ol>
+    </div>
+
+  <h2>Number to Guess: <span id = "number-to-guess"></span></h2>
+  
+  <div class = "score">
+    <div id = "wins">Wins: </div>
+    <div id = "losses">Losses: </div>
+  </div>
+  
+  <div class = "snowflakes">
+    <img src = "assets/images/snowflake1.jpg" width = "200px" height="200" id ="one">
+    <img src = "assets/images/snowflake2.jpg" width = "200px" height="200" id ="two">
+    <img src = "assets/images/snowflake3.jpg" width = "200px" height="200" id ="three">
+    <img src = "assets/images/snowflake4.jpg" width = "200px" height="200" id ="four">
+  </div>
+
+   
+  <div class = "yourTotalScore">Your total score is: </div>
+  <div class = "totalScore"></div>
+
+</body>
+</html>
