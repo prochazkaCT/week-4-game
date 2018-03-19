@@ -1,14 +1,16 @@
 
-var snowflakes = ["#one", "#two", "#three", "#four"];
+var snowflakes = ["#one","#two","#three","#four"];
+
 var wins = 0;
 var losses = 0;
-var flakeNum = [];
 var runFlakeNum = true;
+
+var flakeNum = [];
 
 var randomNumber = function () {
   var screenNumber = "";
   var minNumber = 15;
-  var maxNumber = 100;
+  var maxNumber = 50;
   var ranNumber = Math.floor(Math.random() * (maxNumber - minNumber +1) + minNumber);
   console.log("the randomNumber to guess is " + ranNumber);
   screenNumber = ranNumber;
@@ -20,20 +22,18 @@ randomNumber();
 for (var i = 0; i < snowflakes.length; i++) {
   var random = Math.floor(Math.random() * 15);
   console.log(random);
-  var flakes = $(".snowflakes");
-    flakes.attr( {
-    "data-random": random
-    });
-  $(".snowflakes").append(flakes);  
-};
+  flakeNum.push(random);
+  console.log("this is the flakeNum array: " + flakeNum);
+  $("#one").val(flakeNum[0]);
+  $("#two").val(flakeNum[1]);
+  $("#three").val(flakeNum[2]);
+  $("#four").val(flakeNum[3]);
 
-$(".snowflakes").on('click', function() {
-  var result;
-  var num = $(this).attr('data-random');
-  result += num;
+  $(".snowflakes").on("click", "#one", function () {
+    alert("you clicked me and I am worth :" + flakeNum[0]);
+  });
+}
 
-  console.log($(this).attr('data-random'));
-});
 
 
 
