@@ -1,12 +1,19 @@
+//Setting up the variables: 
 
-var snowflakes = ["#one", "#two", "#three", "#four"];
 var wins = 0;
+$("#wins").text("Wins: ");
 var losses = 0;
-var flakeNum = [];
-var runFlakeNum = true;
+$("#losses").text("Losses: ");
+var snow = ["assets/images/snowflake1.jpg", "assets/images/snowflake2.jpg", "assets/images/snowflake3.jpg", "assets/images/snowflake4.jpg"];
+var screenNumber = "";
+var snowValue = [];
+var guessSum = 0;
+var snowFlakes = $("#snowflakes");
 
+
+//A random number is on the screen when you load the page and will update when the player wins or loses the game. 
 var randomNumber = function () {
-  var screenNumber = "";
+  screenNumber = "";
   var minNumber = 15;
   var maxNumber = 100;
   var ranNumber = Math.floor(Math.random() * (maxNumber - minNumber +1) + minNumber);
@@ -15,28 +22,53 @@ var randomNumber = function () {
   $("#number-to-guess").html(screenNumber);
 };
 
-randomNumber();
-
-for (var i = 0; i < snowflakes.length; i++) {
-  var random = Math.floor(Math.random() * 15);
-  console.log(random);
-  var flakes = $(".snowflakes");
-    flakes.attr( {
-    "data-random": random
-    });
-  $(".snowflakes").append(flakes);  
+//The random number generator and value assign function:
+var snowFlakeRandom = function () {
+  for (var i = 0; i < 4; i++) {
+    var snowRandom = Math.floor(Math.random() * 15);
+    snowValue.push(snowRandom);
+    console.log(snowValue[i]);
+    var imageSnow = $("<img>");
+    imageSnow.addClass("snow-image");
+    imageSnow.attr("src", snow[i]);
+    imageSnow.attr("data-snowvalue", snowValue[i]);
+    snowFlakes.append(imageSnow);
+  }
 };
 
-$(".snowflakes").on('click', function() {
-  var result;
-  var num = $(this).attr('data-random');
-  result += num;
+//The game reset function:
+var reset = function () {
+  $("#snowflakes").empty();
+  randomNumber();
+  snowFlakeRandom();
+}
 
-  console.log($(this).attr('data-random'));
+//Here is the game playing part: 
+snowFlakes.on("click", ".snow-image", function () {
+  var flakeValue = ($(this).attr("data-snowvalue"));
+  flakeValue = parseInt(flakeValue);
+  guessSum += flakeValue;
+  console.log("New score: " + guessSum);
+  $(".guessSum").html("Your score is: " + guessSum);
+  var newScreen = parseInt(screenNumber);
+    if (guessSum === newScreen) {
+      wins++;
+      $(".guessSum").html("Your score is: " + 0);
+      alert("Whoohooooo you won!! You guessed exactly " + newScreen);
+      $("#wins").html("Wins: " + wins);
+      guessSum = 0;
+      reset();
+    }
+      else if (guessSum >= newScreen) {
+      alert("So sorry - you lost! You guessed: " + guessSum + " Please try again :)");
+      losses++;
+      $(".guessSum").html("Your guess so far: " + 0);
+      $("#losses").html("Losses: " + losses);
+      guessSum = 0;
+      reset();
+      }
 });
 
-
-
-
-
-
+//Calling the functions:
+randomNumber();
+snowFlakeRandom();

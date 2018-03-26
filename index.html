@@ -3,50 +3,52 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Crystal Collector</title>
-
+  <title>Snowflake Collector</title>
+  <link rel="shortcut icon" href="assets/images/snowflake.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 
 <body>
+  
+  <h1>Welcome to the Snowflake Collecter!</h1>
 
   <div class = "container">
-    <h1>Snowflake Collecter!</h1>
-      <h2>Game Instructions:</h2>
-        <ol>
-          <li>You are given a random number at the start of each game.</li>
-          <li>There are four snowflakes below and each of them has been given a random value. By clicking on each snowflake, you will add that assigned value to your total score.</li>
-          <li>You win the game by matching your total score to the randm number, you lose the game if your total score goes above the random number.</li>
-          <li>The value of each item is hidden from you until you click on it.</li>
-          <li>Each time when the game starts, the game will change the values of each item.</li>
-        </ol>
+    <h2>Game Instructions:</h2>
+      <ol>
+        <li>1. You are given a random number at the start of each game (see the Number to Guess).</li>
+        <li>2. Each snowflake below has been assigned a random value.</li>
+        <li>3. When you click on each snowflake, your score will increase with each snowflake that you click.</li>
+        <li>4. You will need to figure out (quickly!) the value each snowflake has been given in order to match the random number to guess.</li>
+        <li>5. The game is won when you exactly match your score to the "Number to Guess".</li> 
+        <li>6. Conversely, you lose the game if your total score goes above the random number.</li>
+        <li>7. Each time the game starts, the values of each snowflake will change.</li>
+        <br>
+        <p>Good Luck!!!</p>
+      </ol>
   </div>
 
-  <h2>Number to Guess: <span id = "number-to-guess"></span></h2>
+  <h3>Number to Guess: <span id = "number-to-guess"></span></h2>
   
   <div class = "score">
-    <div id = "wins">Wins: </div>
-    <div id = "losses">Losses: </div>
-  </div>
-  
-  <div class = "snowflakes">
-    <img src = "assets/images/snowflake1.jpg" width = "200px" height="200" id ="one">
-    <img src = "assets/images/snowflake2.jpg" width = "200px" height="200" id ="two">
-    <img src = "assets/images/snowflake3.jpg" width = "200px" height="200" id ="three">
-    <img src = "assets/images/snowflake4.jpg" width = "200px" height="200" id ="four">
+    <div id = "wins"></div>
+    <div id = "losses"></div>
   </div>
 
-   
-  <div class = "yourTotalScore">Your total score is: </div>
-  <div class = "totalScore"></div>
+  <div class = "guessSum">Your guess fo far: </div>
+
+  <div id = "snowflakes">
+  </div>
 
   <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
   
-  <script src="assets/javascript/game3.js"></script>
+  <script src="assets/javascript/game.js"></script>
 
 </body>
 </html>
