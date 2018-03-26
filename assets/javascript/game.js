@@ -49,7 +49,7 @@ snowFlakes.on("click", ".snow-image", function () {
   flakeValue = parseInt(flakeValue);
   guessSum += flakeValue;
   console.log("New score: " + guessSum);
-  $(".guessSum").html("Your score is: " + guessSum);
+  $(".guessSum").html("Your guess so far: " + guessSum);
   var newScreen = parseInt(screenNumber);
     if (guessSum === newScreen) {
       wins++;
