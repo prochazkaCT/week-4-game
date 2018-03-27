@@ -17,7 +17,7 @@ var randomNumber = function () {
   var minNumber = 15;
   var maxNumber = 100;
   var ranNumber = Math.floor(Math.random() * (maxNumber - minNumber +1) + minNumber);
-  // console.log("the randomNumber to guess is " + ranNumber);
+  console.log("the randomNumber to guess is " + ranNumber);
   screenNumber = ranNumber;
   $("#number-to-guess").html(screenNumber);
 };
@@ -25,9 +25,9 @@ var randomNumber = function () {
 //The random number generator and value assign function:
 var snowFlakeRandom = function () {
   for (var i = 0; i < 4; i++) {
-    var snowRandom = Math.floor(Math.random() * 15);
+    var snowRandom = Math.floor(Math.random() * 20);
     snowValue.push(snowRandom);
-    // console.log(snowValue[i]);
+    console.log(snowValue[i]);
     var imageSnow = $("<img>");
     imageSnow.addClass("snow-image");
     imageSnow.attr("src", snow[i]);
@@ -39,8 +39,9 @@ var snowFlakeRandom = function () {
 //The game reset function:
 var reset = function () {
   $("#snowflakes").empty();
-  randomNumber();
+  snowValue = [];
   snowFlakeRandom();
+  randomNumber();
 }
 
 //Here is the game playing part: 
@@ -48,7 +49,7 @@ snowFlakes.on("click", ".snow-image", function () {
   var flakeValue = ($(this).attr("data-snowvalue"));
   flakeValue = parseInt(flakeValue);
   guessSum += flakeValue;
-  // console.log("New score: " + guessSum);
+  console.log("New score: " + guessSum);
   $(".guessSum").html("Your guess so far: " + guessSum);
   var newScreen = parseInt(screenNumber);
     if (guessSum === newScreen) {
